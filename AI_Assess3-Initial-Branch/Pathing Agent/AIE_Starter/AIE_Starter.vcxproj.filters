@@ -36,16 +36,16 @@
     <ClCompile Include="Agent.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="FiniteStateMachine.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="State.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Condition.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="DistanceCondition.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Composite.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Selector.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Sequence.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Behaviour.cpp">
@@ -77,16 +77,16 @@
     <ClInclude Include="Agent.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="FiniteStateMachine.h">
+    <ClInclude Include="Composite.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="State.h">
+    <ClInclude Include="Selector.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Condition.h">
+    <ClInclude Include="Sequence.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="DistanceCondition.h">
+    <ClInclude Include="LeafNodeBehaviours.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
