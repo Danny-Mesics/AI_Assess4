@@ -144,13 +144,10 @@
     <ClCompile Include="Behaviour.cpp" />
     <ClCompile Include="Composite.cpp" />
     <ClCompile Include="DistanceCondition.cpp" />
-    <ClCompile Include="FollowBehaviour.cpp" />
-    <ClCompile Include="GoToPointBehaviour.cpp" />
     <ClCompile Include="PathAgent.cpp" />
     <ClCompile Include="Pathfinding.cpp" />
     <ClCompile Include="Selector.cpp" />
     <ClCompile Include="Sequence.cpp" />
-    <ClCompile Include="WanderBehaviour.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -159,14 +156,11 @@
     <ClInclude Include="Agent.h" />
     <ClInclude Include="Behaviour.h" />
     <ClInclude Include="Composite.h" />
-    <ClInclude Include="FollowBehaviour.h" />
-    <ClInclude Include="GoToPointBehaviour.h" />
     <ClInclude Include="LeafNodeBehaviours.h" />
     <ClInclude Include="PathAgent.h" />
     <ClInclude Include="Pathfinding.h" />
     <ClInclude Include="Selector.h" />
     <ClInclude Include="Sequence.h" />
-    <ClInclude Include="WanderBehaviour.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

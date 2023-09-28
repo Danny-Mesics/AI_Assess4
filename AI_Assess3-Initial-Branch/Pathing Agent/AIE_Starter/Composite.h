@@ -10,9 +10,10 @@ namespace AIForGames {
         Composite* Add(Behaviour* child);
         void Remove(Behaviour* child);
         void Clear();
+        
 
     protected:
-        typedef std::vector<Behaviour*> Behaviours;
+        using Behaviours = std::vector<Behaviour*>;
         Behaviours m_children;
     };
 }

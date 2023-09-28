@@ -1,9 +1,26 @@
 #include "Agent.h"
 #include "Behaviour.h"
 #include "Pathfinding.h"
+#include "LeafNodeBehaviours.h"
 
 namespace AIForGames
 {
+	Agent::Agent(NodeMap* _nodeMap) : m_current(nullptr), m_nodeMap(_nodeMap), m_color({ 255,255,0,255 }), m_pathAgent(_nodeMap) {
+			m_pathAgent.SetSpeed(128);
+			m_current =
+				(new Selector())
+				->Add(
+					new Sequence())
+					->Add(
+						new DistanceCondition(5.0f * m_nodeMap->GetCellSize(), true))
+					->Add(
+						new FollowBehaviour())
+				->Add(
+					new WanderBehaviour());
+
+
+			m_current->Enter(this);
+	}
 	void Agent::Update(float deltaTime)
 	{
 		if (m_current)

@@ -3,6 +3,7 @@ namespace AIForGames
 {
 	enum BehaviourResult
 	{
+		Invalid,
 		Success,
 		Failure,
 		Running
@@ -16,7 +17,7 @@ namespace AIForGames
 		virtual void Enter(Agent* agent) {};
 
 	public:
-		Behaviour() : m_eBehaviourResult(Running) {}
+		Behaviour() : m_eBehaviourResult(Invalid) {}
 		virtual ~Behaviour() {}
 
 	public:

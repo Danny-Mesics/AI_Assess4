@@ -54,11 +54,5 @@ namespace AIForGames
         float GetCellSize();
 
         ~NodeMap();
-
-
-
     };
-
-
-
 }

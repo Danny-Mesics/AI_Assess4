@@ -4,6 +4,7 @@
 #include "PathAgent.h"
 #include "Behaviour.h"
 
+
 namespace AIForGames
 {
 	class Behaviour;
@@ -12,10 +13,7 @@ namespace AIForGames
 	class Agent
 	{
 	public:
-		Agent(NodeMap* _nodeMap, Behaviour* _behaviour) : m_current(_behaviour), m_nodeMap(_nodeMap), m_color({ 255,255,0,255 }), m_pathAgent(_nodeMap) { 
-			m_pathAgent.SetSpeed(128); 
-			m_current->Enter(this);
-		}
+		Agent(NodeMap* _nodeMap);
 		~Agent() { delete m_current; }
 
 		void Update(float deltaTime);
@@ -38,7 +36,7 @@ namespace AIForGames
 		PathAgent m_pathAgent;
 		Behaviour* m_current;
 		NodeMap* m_nodeMap;
-		Agent* m_targetAgent;
+		Agent* m_targetAgent = nullptr;
 		Color m_color;
 	};
 }

@@ -15,7 +15,7 @@ AIForGames::BehaviourResult AIForGames::Sequence::Update(Agent* agent, float del
     // Keep going until a child behavior says it's running.
     while (true)
     {
-        BehaviourResult s = (*m_current)->tick(agent, deltaTime);
+        BehaviourResult s = (*m_current)->Tick(agent, deltaTime);
 
         // If the child fails, or keeps running, do the same.
         if (s != Success)

@@ -9,6 +9,29 @@
 
 namespace AIForGames
 {
+	class DistanceCondition :
+		public Behaviour 
+	{
+	private:
+		float m_distance;
+		bool m_lessThan;
+	public:
+		DistanceCondition(float d, bool lt) : m_distance(d), m_lessThan(lt) {}
+
+		BehaviourResult Update(Agent* agent, float deltaTime)
+		{
+			if (IsTrue(agent)) {
+				return Success;
+			}
+			return Failure;
+		}
+
+		bool IsTrue(Agent* agent)
+		{
+			return (glm::distance(agent->GetPosition(), agent->GetTargetAgent()->GetPosition()) < m_distance) == m_lessThan;
+		}
+	};
+
 	class GoToPointBehaviour :
 		public Behaviour
 	{
@@ -49,6 +72,9 @@ namespace AIForGames
 			Agent* target = agent->GetTargetAgent();
 
 			float dist = glm::length(target->GetPosition() - lastTargetPosition);
+			if (target == nullptr) {
+				return Failure;
+			}
 			if (dist > agent->GetNodeMap()->GetCellSize())
 			{
 				lastTargetPosition = target->GetPosition();
