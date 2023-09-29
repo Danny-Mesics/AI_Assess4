@@ -6,6 +6,7 @@
 #include "Selector.h"
 #include "Sequence.h"
 #include "Pathfinding.h"
+#include <chrono>
 
 namespace AIForGames
 {
@@ -64,7 +65,7 @@ namespace AIForGames
 			// red when following
 			agent->SetColor({ 255,0,0,255 });
 			agent->SetPathColor({ 255,0,0,255 });
-			agent->Reset();
+			//agent->Reset();
 		}
 
 		BehaviourResult Update(Agent* agent, float deltaTime)
@@ -79,7 +80,10 @@ namespace AIForGames
 			{
 				lastTargetPosition = target->GetPosition();
 				agent->GoTo(lastTargetPosition);
-			} // Extract Conditions from these behaviours and create some new behaviours, also build the tree
+			}
+			if (!agent->PathComplete()) {
+				return Running;
+			}
 			return Success;
 		}
 	};
@@ -91,9 +95,9 @@ namespace AIForGames
 		void Enter(Agent* agent)
 		{
 			// green when wandering
-			agent->SetColor({ 0,255,0,255 });
-			agent->SetPathColor({ 0,255,0,255 });
-			agent->Reset();
+			agent->SetColor({ 255,255,0,255 });
+			agent->SetPathColor({ 255,255,0,255 });
+			//agent->Reset();
 		}
 		BehaviourResult Update(Agent* agent, float deltaTime)
 		{
@@ -102,4 +106,41 @@ namespace AIForGames
 			return Success;
 		}
 	};
+
+	/*class RepelCondition :
+		public Behaviour
+	{
+	public:
+		BehaviourResult Update(Agent* agent, float deltaTime)
+		{
+			if (agent->GetPosition() == agent->GetTargetAgent()->GetPosition())
+			{
+				agent->GoTo(agent->GetRandomNode());
+				return Success;
+			}
+			return Failure;
+		}
+	};*/
+
+	/*class WaitBehaviour :
+		public Behaviour
+	{
+	public:
+		std::chrono::duration<float>twoSeconds(2.0f);
+		void Enter(Agent* agent)
+		{
+			agent->SetColor({ 0,0,0,255 });
+			agent->SetPathColor({ 0,255,0,255 });
+			agent->Reset();
+		}
+		BehaviourResult Update(Agent* agent, float deltaTime)
+		{
+			if (agent->PathComplete())
+			{
+				
+			}
+				
+			return Success;
+		}
+	};*/
 }

@@ -43,17 +43,18 @@ int main(int argc, char* argv[])
     std::vector<Agent*> agents;
 
     Agent* agent1 = new Agent(&nodeMap);
-    agent1->SetNode(nodeMap.GetRandomNode());
-    agent1->SetSpeed(256);
+    agent1->SetNode(nodeMap.GetNode(1,1));
+    agent1->SetSpeed(300);
     agents.push_back(agent1);
 
 
     Agent* agent2 = new Agent(&nodeMap);
-    agent2->SetNode(nodeMap.GetRandomNode());
+    agent2->SetNode(nodeMap.GetNode(15, 8));
     agent2->SetTargetAgent(agent1);
-    agent2->SetSpeed(128);
+    agent2->SetSpeed(300);
     agents.push_back(agent2);
     
+    agent1->SetTargetAgent(agent2);
 
     float time = (float)GetTime();
     float deltaTime;

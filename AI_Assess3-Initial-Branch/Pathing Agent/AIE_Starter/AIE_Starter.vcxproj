@@ -142,6 +142,7 @@
     <ClCompile Include="Agent.cpp" />
     <ClCompile Include="AIE_Starter.cpp" />
     <ClCompile Include="Behaviour.cpp" />
+    <ClCompile Include="BehaviourTree.cpp" />
     <ClCompile Include="Composite.cpp" />
     <ClCompile Include="DistanceCondition.cpp" />
     <ClCompile Include="PathAgent.cpp" />
@@ -155,6 +156,7 @@
   <ItemGroup>
     <ClInclude Include="Agent.h" />
     <ClInclude Include="Behaviour.h" />
+    <ClInclude Include="BehaviourTree.h" />
     <ClInclude Include="Composite.h" />
     <ClInclude Include="LeafNodeBehaviours.h" />
     <ClInclude Include="PathAgent.h" />

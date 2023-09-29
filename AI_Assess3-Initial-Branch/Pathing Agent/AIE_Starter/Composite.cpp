@@ -4,6 +4,7 @@
 AIForGames::Composite* AIForGames::Composite::Add(Behaviour* child)
 {
 	m_children.push_back(child);
+	//m_current = m_children.begin();
 	return this;
 }
 

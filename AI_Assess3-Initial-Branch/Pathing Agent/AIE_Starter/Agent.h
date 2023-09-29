@@ -14,7 +14,7 @@ namespace AIForGames
 	{
 	public:
 		Agent(NodeMap* _nodeMap);
-		~Agent() { delete m_current; }
+		~Agent() { delete m_BehaviourTree; }
 
 		void Update(float deltaTime);
 		void Draw();
@@ -34,7 +34,7 @@ namespace AIForGames
 	protected:
 	private:
 		PathAgent m_pathAgent;
-		Behaviour* m_current;
+		Behaviour* m_BehaviourTree;
 		NodeMap* m_nodeMap;
 		Agent* m_targetAgent = nullptr;
 		Color m_color;

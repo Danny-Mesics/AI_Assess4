@@ -5,26 +5,27 @@
 
 namespace AIForGames
 {
-	Agent::Agent(NodeMap* _nodeMap) : m_current(nullptr), m_nodeMap(_nodeMap), m_color({ 255,255,0,255 }), m_pathAgent(_nodeMap) {
+	Agent::Agent(NodeMap* _nodeMap) : m_BehaviourTree(nullptr), m_nodeMap(_nodeMap), m_color({ 255,255,0,255 }), m_pathAgent(_nodeMap) {
 			m_pathAgent.SetSpeed(128);
-			m_current =
+			m_BehaviourTree =
 				(new Selector())
 				->Add(
-					new Sequence())
-					->Add(
-						new DistanceCondition(5.0f * m_nodeMap->GetCellSize(), true))
-					->Add(
-						new FollowBehaviour())
+					(new Sequence())
+						->Add(new DistanceCondition(8.0f * m_nodeMap->GetCellSize(), false))
+						->Add(new FollowBehaviour()))
 				->Add(
-					new WanderBehaviour());
+					(new Sequence())
+						->Add(new DistanceCondition(20.0f * m_nodeMap->GetCellSize(), true))
+						->Add(new WanderBehaviour()));
 
 
-			m_current->Enter(this);
+			m_BehaviourTree->Enter(this);
 	}
+
 	void Agent::Update(float deltaTime)
 	{
-		if (m_current)
-			m_current->Update(this, deltaTime);
+		if (m_BehaviourTree)
+			m_BehaviourTree->Tick(this, deltaTime);
 		m_pathAgent.Update(deltaTime);
 	}
 

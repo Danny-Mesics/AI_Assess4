@@ -12,7 +12,6 @@ namespace AIForGames {
 
         virtual BehaviourResult Update(Agent* agent, float deltaTime);
 
-    protected:
         Behaviours::iterator m_current;
     };
 }

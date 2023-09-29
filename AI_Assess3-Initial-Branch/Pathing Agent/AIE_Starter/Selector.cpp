@@ -17,6 +17,7 @@ AIForGames::BehaviourResult AIForGames::Selector::Update(Agent* agent, float del
     {
         BehaviourResult s = (*m_current)->Tick(agent, deltaTime);
 
+        (*m_current)->Enter(agent);
         // If the child succeeds, or keeps running, do the same.
         if (s != Failure)
         {
@@ -24,7 +25,7 @@ AIForGames::BehaviourResult AIForGames::Selector::Update(Agent* agent, float del
         }
 
         // Hit the end of the array, it didn't end well...
-        if (m_current == m_children.end())
+        if (++m_current == m_children.end())
         {
             return Failure;
         }

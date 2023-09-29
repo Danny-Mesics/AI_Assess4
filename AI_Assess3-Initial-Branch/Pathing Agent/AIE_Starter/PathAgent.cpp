@@ -11,6 +11,7 @@ namespace AIForGames
 		m_currentIndex = 0;
 		m_speed = 2.0f;
 		m_color = { 255,255,0,255 };
+		m_pathColour = { 255,255,0,255 };
 	}
 
 	void PathAgent::Update(float deltaTime)

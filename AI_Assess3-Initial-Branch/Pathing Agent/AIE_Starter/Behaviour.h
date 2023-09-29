@@ -22,8 +22,7 @@ namespace AIForGames
 
 	public:
 		virtual BehaviourResult Update(Agent* agent, float deltaTime) = 0;
-		virtual void onInitialize() {}
-		virtual void onTerminate(BehaviourResult status) {}
+		virtual void OnInitialize() {}
 
 		BehaviourResult Tick(Agent* agent, float deltaTime);
 	private:

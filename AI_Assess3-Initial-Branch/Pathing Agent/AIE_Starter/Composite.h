@@ -11,9 +11,8 @@ namespace AIForGames {
         void Remove(Behaviour* child);
         void Clear();
         
-
     protected:
-        using Behaviours = std::vector<Behaviour*>;
+        typedef std::vector<Behaviour*> Behaviours;
         Behaviours m_children;
     };
 }
